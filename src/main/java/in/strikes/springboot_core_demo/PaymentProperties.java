@@ -1,5 +1,6 @@
 package in.strikes.springboot_core_demo;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -42,5 +43,10 @@ public class PaymentProperties {
 
     public void setTimeout(int timeout) {
         this.timeout = timeout;
+    }
+
+    @PostConstruct
+    public void afterPostConstruct() {
+        System.out.println("PaymentProperties afterPostConstruct:: " + this);
     }
 }
